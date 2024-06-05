@@ -97,7 +97,9 @@ export const submit = action({
     // store it in the vercel blob storage
     const { url } = await put(`pdf-${Date.now()}`, blob, {
       access: "public",
-      token: process.env.BLOB_READ_WRITE_TOKEN,
+      token:
+        process.env.BLOB_READ_WRITE_TOKEN ||
+        "vercel_blob_rw_H3oJu6sBAcDvckiW_o6E0RWE9OStZNFgSrSvfjBcGMDyWrL",
     });
 
     // save the pdf blob to database as base64
